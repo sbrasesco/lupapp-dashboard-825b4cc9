@@ -8,6 +8,7 @@ import WelcomeModal from '@/components/WelcomeModal';
 import BusinessSelectorModal from '@/components/BusinessSelectorModal';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { useAuth } from '@/hooks/useAuth';
+import supermarketBackground from '@/assets/supermarket-background.jpg';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -36,9 +37,16 @@ const LoginPage = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen flex items-center justify-center"
+      className="min-h-screen flex items-center justify-center relative"
+      style={{
+        backgroundImage: `url(${supermarketBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
-      <div className="w-full max-w-sm space-y-6 glass-container p-8 shadow-2xl">
+      <div className="absolute inset-0 backdrop-blur-sm bg-black/30"></div>
+      <div className="w-full max-w-sm space-y-6 glass-container p-8 shadow-2xl relative z-10">
         {isLoading ? (
           <div className="space-y-6 text-center">
             <div className="text-center">
